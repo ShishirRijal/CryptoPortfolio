@@ -27,29 +27,19 @@ struct TabBarButton: View {
                 Text(title)
                     .font(.system(size: 12, weight: .semibold))
             }
-            .foregroundStyle(isSelected ? .white : .secondary)
-            .frame(width: 73.25, height: 55)
+            .foregroundStyle(isSelected ? .white : .theme.gray)
+            .frame(width:  65, height: 55)
             .padding(.vertical, 8)
-            .padding(.horizontal, isSelected ? 10: 0)
+            .padding(.horizontal, isSelected ? 10 : 0)
             .background(
                 ZStack {
                     if isSelected {
-                        let base = Color(red: 34/255, green: 45/255, blue: 236/255)
-                        let overlay = Color(red: 111/255, green: 136/255, blue: 250/255).opacity(0.32)
                         RoundedRectangle(cornerRadius: 44, style: .continuous)
-                            .fill(base)
-                        RoundedRectangle(cornerRadius: 44, style: .continuous)
-                            .fill(overlay)
-                            .blendMode(.overlay)
-                        RoundedRectangle(cornerRadius: 44, style: .continuous)
-                            .stroke(Color.white.opacity(0.12), lineWidth: 0.5)
-                            .shadow(color: Color.white.opacity(0.12), radius: 4, x: 0, y: 2)
-                            .clipShape(RoundedRectangle(cornerRadius: 44, style: .continuous))
+                            .fill(Color.theme.blue)
                     }
                 }
             )
             .clipShape(RoundedRectangle(cornerRadius: 44, style: .continuous))
-            .contentShape(RoundedRectangle(cornerRadius: 44, style: .continuous))
         }
         .buttonStyle(.plain)
     }
