@@ -27,20 +27,23 @@ struct AppTabBar: View {
             
            
             // Add button
-            Button {
-                let generator = UIImpactFeedbackGenerator(style: .soft)
-                           generator.impactOccurred()
-                   
-                    } label: {
-                        Image(systemName: "plus")
-                               .font(.system(size: 24, weight: .regular))
-                               .foregroundStyle(Color.theme.blue)
-                               .frame(width: 62, height: 62)
-                               .background(.white)
-                               .clipShape(Circle())
-                    
-                       }
-                       .buttonStyle(.plain)
+            if(selection == Tab.analytics) {
+                Button {
+                    let generator = UIImpactFeedbackGenerator(style: .soft)
+                               generator.impactOccurred()
+                       
+                        } label: {
+                            Image(systemName: "plus")
+                                   .font(.system(size: 24, weight: .regular))
+                                   .foregroundStyle(Color.theme.blue)
+                                   .frame(width: 62, height: 62)
+                                   .background(.white)
+                                   .clipShape(Circle())
+                        
+                    }
+                    .buttonStyle(.plain)
+            }
+            
         }
         .frame(height: 62)
        
