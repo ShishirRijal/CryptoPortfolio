@@ -36,7 +36,7 @@ struct AppTabBar: View {
                                .font(.system(size: 24, weight: .regular))
                                .foregroundStyle(Color.theme.blue)
                                .frame(width: 62, height: 62)
-                               .background()
+                               .background(.white)
                                .clipShape(Circle())
                     
                        }
