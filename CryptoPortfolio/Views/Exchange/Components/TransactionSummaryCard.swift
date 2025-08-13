@@ -1,38 +1,43 @@
-// MARK: - Portfolio Header View
+//
+//  TransactionSummaryCard.swift
+//  CryptoPortfolio
+//
+//  Created by Shishir Rijal on 13/08/2025.
+//
+
+import SwiftUI
+
 struct TransactionSummaryCard: View {
     @Binding var selectedCurrency: CurrencyType
     
     var body: some View {
-        VStack(spacing: 20) {
-            // Top bar with menu and notifications
-            HStack {
-                Button(action: {}) {
-                    Image(systemName: "line.3.horizontal")
-                }
-                
-                Spacer()
-                
-                Button(action: {}) {
-                    Image(systemName: "bell")
-                }
-            }
-            .font(.system(size: 24))
-            .foregroundColor(.white)
-            .padding(.horizontal, 20)
+        ZStack {
+            // Bottom background card (darkest)
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Color(red: 17/255, green: 23/255, blue: 104/255))
+                .frame(width: 325, height: 177)
+                .offset(x: -1, y: 18) // Positioned offset from main card
             
-            // Portfolio Card
+            // Middle background card
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Color(red: 42/255, green: 31/255, blue: 127/255))
+                .frame(width: 345, height: 177)
+                .offset(x: -6, y: 9) // Positioned offset from main card
+            
+            // Main portfolio card (front)
             VStack(spacing: 16) {
+                
                 // Currency Badge
                 HStack {
                     Spacer()
                     Text("INR")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundColor(.white)
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, 10)
                         .padding(.vertical, 8)
                         .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.white.opacity(0.2))
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.theme.blue.opacity(0.6))
                         )
                     Spacer()
                 }
@@ -40,36 +45,30 @@ struct TransactionSummaryCard: View {
                 // Portfolio Amount
                 VStack(spacing: 8) {
                     Text("1,57,342.05")
-                        .font(.system(size: 32, weight: .bold))
+                        .font(.system(size: 40, weight: .bold))
                         .foregroundColor(.white)
                     
-                    HStack(spacing: 12) {
-                        Text("₹1,342")
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundColor(.white.opacity(0.7))
+                    HStack(spacing: 18) {
+                        Text("₹ 1,342")
+                            .foregroundColor(.white.opacity(0.64))
                         
                         Text("+4.6%")
-                            .font(.system(size: 14, weight: .medium))
                             .foregroundColor(.green)
                     }
+                    .font(.system(size: 14, weight: .medium))
                 }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 30)
             .background(
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color(red: 0.4, green: 0.35, blue: 0.8),
-                                Color(red: 0.2, green: 0.25, blue: 0.6)
-                            ]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                Image("ExchangeHeader")
+                    .resizable()
+                    .frame(height: 177)
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
             )
-            .padding(.horizontal, 20)
         }
-    }
+        .padding(.horizontal, 20)
+        }
 }
