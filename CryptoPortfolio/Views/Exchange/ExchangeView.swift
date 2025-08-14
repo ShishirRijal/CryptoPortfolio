@@ -18,7 +18,7 @@ struct ExchangeView: View {
             VStack(spacing: 0) {
                 
                 // Header
-                ExchangeViewHeader()
+                AppHeader()
                     .padding(.bottom, 20)
                 
                 

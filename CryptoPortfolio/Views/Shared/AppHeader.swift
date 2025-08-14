@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExchangeViewHeader: View {
+struct AppHeader: View {
     var body: some View {
         HStack {
             Button(action: {}) {
