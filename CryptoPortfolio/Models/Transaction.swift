@@ -12,9 +12,9 @@ class Transaction: ObservableObject, Identifiable {
     var type: TransactionType
     var date: String
     var amount: Double
-    var coin: String
+    var coin: Coin
     
-    init(type: TransactionType, date: String, amount: Double, coin: String) {
+    init(type: TransactionType, date: String, amount: Double, coin: Coin) {
         self.type = type
         self.date = date
         self.amount = amount
@@ -23,6 +23,33 @@ class Transaction: ObservableObject, Identifiable {
 }
 
 
+enum Coin{
+    case bitcoin, ethereum, rupee
+    
+    var symbolName: String {
+        switch(self) {
+        case .bitcoin:
+            return "BTC"
+        case .ethereum:
+            return "ETH"
+        case .rupee:
+            return "₹"
+        }
+    }
+    
+    var icon: String {
+        switch(self) {
+        case .bitcoin:
+            return "Bitcoin"
+        case .ethereum:
+            return "Ethereum"
+        case .rupee:
+            return "INR"
+        }
+    }
+}
+
+ 
 
 
 enum TransactionType {
@@ -49,12 +76,12 @@ enum TransactionType {
 
 // Dummy Transactions
 var transactions: [Transaction] = [
-    Transaction(type: .receive, date: "20 March", amount: 0.002126, coin: "BTC"),
-    Transaction(type: .send, date: "19 March", amount: -0.003126, coin: "ETH"),
-    Transaction(type: .send, date: "18 March", amount: -0.02126, coin: "LTC"),
-    Transaction(type: .receive, date: "17 March", amount: 0.001245, coin: "BTC"),
-    Transaction(type: .send, date: "16 March", amount: -0.005678, coin: "ETH"),
-    Transaction(type: .receive, date: "15 March", amount: 0.008932, coin: "LTC"),
-    Transaction(type: .receive, date: "14 March", amount: 0.001567, coin: "BTC"),
-    Transaction(type: .send, date: "13 March", amount: -0.002334, coin: "ETH")
+    Transaction(type: .receive, date: "20 March", amount: 0.002126, coin: .bitcoin),
+    Transaction(type: .send, date: "19 March", amount: -0.003126, coin: .ethereum),
+    Transaction(type: .send, date: "18 March", amount: -0.02126, coin: .bitcoin),
+    Transaction(type: .receive, date: "17 March", amount: 0.001245, coin: .bitcoin),
+    Transaction(type: .send, date: "16 March", amount: -0.005678, coin: .ethereum),
+    Transaction(type: .receive, date: "15 March", amount: 0.008932, coin: .bitcoin),
+    Transaction(type: .receive, date: "14 March", amount: 0.001567, coin: .bitcoin),
+    Transaction(type: .send, date: "13 March", amount: -0.002334, coin: .bitcoin)
 ]

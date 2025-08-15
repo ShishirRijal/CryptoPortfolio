@@ -55,12 +55,6 @@ private struct ActionButtonsView: View {
 }
 
 
-
-// MARK: - Supporting Types [For readibility only]
-enum CurrencyType {
-    case inr, usd, bitcoin
-}
-
 #Preview {
     ExchangeView()
         .preferredColorScheme(.dark)

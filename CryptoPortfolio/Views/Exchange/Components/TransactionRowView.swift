@@ -12,7 +12,7 @@ struct TransactionRowView: View {
     
     var body: some View {
         NavigationLink(destination: ExchangeDetailView()) {
-            CustomRoundCard(icon: nil, systemIcon: transaction.type.iconName, name: transaction.type.displayName, label: transaction.date, trailingLabel: transaction.coin, value: transaction.amount, isGray: true)
+            CustomRoundCard(icon: nil, systemIcon: transaction.type.iconName, name: transaction.type.displayName, label: transaction.date, trailingLabel: transaction.coin.symbolName, value: transaction.amount, isGray: true)
         }
         .buttonStyle(.plain)
     }
